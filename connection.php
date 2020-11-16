@@ -45,4 +45,29 @@
         $sql = "DELETE FROM users WHERE username='$username'";
         return $conn->query($sql);
     }
+
+    function logIn($conn, $email, $password) {
+        $password = md5($password);
+        $sql = "SELECT username, email, gender FROM users WHERE email='$email' AND password='$password'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $result = $result->fetch_assoc();
+            return (object) $result;
+        } else {
+            return false;
+        }
+    }
+
+    function isLogged() {
+        session_start();
+
+        if(isset($_SESSION['logged']) && $_SESSION['logged']) return true;
+        else {
+            header("Location: index.php");
+        }
+    }
+
+    function logout() {
+        unset( $_SESSION );
+    }
 ?>

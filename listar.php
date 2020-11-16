@@ -1,5 +1,8 @@
 <?php 
     require_once 'connection.php';
+
+    isLogged();
+
     $conn = OpenCon();
     $users = getUsers($conn);
 ?>
@@ -37,10 +40,18 @@
                 border-radius: 3vh;
                 text-decoration: none;
             }
+
+            .actions {
+                display: flex;
+                justify-content: space-around;
+            }
         </style>
     </head>
     <body>
-        <a href="insert.php">Adicionar novo usuário</a>
+        <div class="actions">
+            <a href="insert.php">Adicionar novo usuário</a>
+            <a href="logout.php">Sair</a>
+        </div>
         <table>
             <thead>
                 <caption>Lista de usuários</caption>

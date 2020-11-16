@@ -1,5 +1,8 @@
 <?php 
     require_once 'connection.php';
+    
+    isLogged();
+    
     $conn = OpenCon();
 
     if($_POST) {
