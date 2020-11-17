@@ -1,0 +1,8 @@
+1- tenha o xampp instalado
+2- adicione um banco de dados crud no phpmyadmin
+3- rode o arquivo crud.sql
+
+Usuário administrador para entrar no sistema
+
+email: admin@admin.com
+senha: 123456
